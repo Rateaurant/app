@@ -1,11 +1,18 @@
 import { NavigationContext } from "@/constants/Context"
 import { useThemeColor } from "@/hooks/useThemeColor"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { Image, ImageBackground, TouchableOpacity, View } from "react-native"
 import { Text } from "@/components/Mantile"
+import { Logger } from "@/scripts/logger"
 
 export default function Index() {
+    Logger.info("Index: Call")
+    useEffect(() => {
+        Logger.info("Index: Load")
+    }, [])
+
     const { get: _, set: setCurrentScreen } = useContext(NavigationContext);
+
     return (
         <ImageBackground
             source={require('@/assets/LandingBackgroundArt.png')}

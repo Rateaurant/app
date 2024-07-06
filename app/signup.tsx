@@ -1,11 +1,17 @@
 import { NavigationContext, StoreContext } from "@/constants/Context"
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ImageBackground, TouchableOpacity, View, Image } from "react-native";
 import { Text } from "@/components/Mantile";
 import Input from "@/components/Mantile/Input";
+import { Logger } from "@/scripts/logger";
 
 export default () => {
+    Logger.info("Signup: Call")
+    useEffect(() => {
+        Logger.info("Signup: Load")
+    }, [])
+
     const { get: _, set: setCurrentScreen } = useContext(NavigationContext);
     const { email, password, username } = useContext(StoreContext);
     return (

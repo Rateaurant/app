@@ -8,6 +8,7 @@ import Signin from './signin';
 import Signup from './signup';
 import Main from './main';
 import { StoreContext, useStateType } from '@/constants/Context';
+import { Logger } from '@/scripts/logger';
 
 preventAutoHideAsync();
 
@@ -16,7 +17,12 @@ function createStoreItem<T>(defaultValue: T): useStateType<T> {
     return { get, set }
 }
 
-export default function RootLayout() {
+export default () => {
+    Logger.info("Layout: Call")
+    useEffect(() => {
+        Logger.info("Layout: Load")
+    }, [])
+
     const [loaded, error] = useFonts({
         BalooBhai2: require('../assets/fonts/BalooBhai2.ttf'),
     });
